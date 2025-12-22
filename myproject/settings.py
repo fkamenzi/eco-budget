@@ -1,13 +1,15 @@
 from pathlib import Path
+import os 
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-(v5h9i&m8o1cgp@0weu3b9n+odnt7xac42!^45byve1t7*@_3w'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://ecobudget.onrender.com', 'localhost']
 
 
 INSTALLED_APPS = [
