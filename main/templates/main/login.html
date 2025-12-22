@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}EcoBudget - Login{% endblock %}
+{% block navbar %}{% endblock %}  {# hides navbar #}
+
+{% block content %}
+<div class="login-page" style="background-image: url('{% static "images/login-bg.png" %}');">
+  <div class="login-container">
+    <h2 class="form-title">Login to Your Account</h2>
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <p class="redirect">
+      Don't have an account? <a href="{% url 'register' %}">Register here</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

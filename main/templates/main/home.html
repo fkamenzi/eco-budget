@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}EcoBudget - Home{% endblock %}
+
+{% block content %}
+
+<div class="gallery">
+  <div class="gallery-item" style="background-image: url('{% static "images/post1.png" %}');"></div>
+  <div class="gallery-item" style="background-image: url('{% static "images/post2.png" %}');"></div>
+  <div class="gallery-item" style="background-image: url('{% static "images/post3.png" %}');"></div>
+  <div class="gallery-item" style="background-image: url('{% static "images/post4.png" %}');"></div>
+  <div class="gallery-item" style="background-image: url('{% static "images/post5.png" %}');"></div>
+  <div class="gallery-item" style="background-image: url('{% static "images/post6.png" %}');"></div>
+  <div class="gallery-item" style="background-image: url('{% static "images/post7.png" %}');"></div>
+  <div class="gallery-item" style="background-image: url('{% static "images/post8.png" %}');"></div>
+  <div class="gallery-item" style="background-image: url('{% static "images/post9.png" %}');"></div>
+  
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const images = document.querySelectorAll(".gallery-item");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  images.forEach(item => observer.observe(item));
+});
+</script>
+
+<div class="sustainability-tip">
+  🌱 {{ tip }}
+</div>
+
+{% endblock %}

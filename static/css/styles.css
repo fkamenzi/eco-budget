@@ -1,0 +1,255 @@
+/* ===========================
+   EcoBudget Stylesheet
+   Color Palette:
+   Dark Green: #315C2B
+   Gray Lavender: #6B5E62
+   Lime Green: #7CB518
+   Off White: #FCFFFC
+   Beige: #EDE7D9
+   =========================== */
+
+:root {
+  --green-dark: #337B33;
+  --lavender-gray: #6B5E62;
+  --lime-green: #598809;
+  --off-white: #FCFFFC;
+  --beige: #EDE7D9;
+  --font-main: 'Poppins', sans-serif;
+}
+
+/* === Global Reset === */
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--off-white);
+  color: var(--green-dark);
+  line-height: 1.6;
+}
+
+/* === Navbar === */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 2rem;
+  background-color: var(--green-dark);
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--off-white); 
+  text-decoration: none;
+}
+
+.navbar .logo img {
+  height: 60px; 
+  width: auto;
+  margin-right: 10px;
+}
+
+.nav-right a,
+.nav-right button {
+  background: none;
+  border: none;
+  color: var(--off-white);
+  font-weight: 400;
+  margin-left: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-right a:hover,
+.nav-right button:hover {
+  color: var(--lime-green);
+}
+
+
+/* === Homepage gallery === */
+.gallery {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.gallery-item {
+  max-width: none;
+  width: 100%;
+  height: 100vh; 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-item:nth-child(odd) { transition-delay: 0.2s; }
+.gallery-item:nth-child(even) { transition-delay: 0.4s; }
+
+.sustainability-tip {
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #f0fff0;
+  border-left: 4px solid #32cd32;
+  font-style: italic;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* === Login Page === */
+
+.login-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-position: cover;;
+  background-size: cover;
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.9); /* semi-transparent white */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 320px;
+  width: 100%;
+  max-width: 400px;
+}
+  
+.login-container form {
+  margin-top: 0.5rem;
+}
+
+.login-container form p {
+  margin: 0.5rem 0;          
+}
+
+.login-btn {
+  background-color: var(--lime-green);
+  color: var(--off-white);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;      /* slightly smaller padding */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.login-btn:hover {
+  background-color: var(--green-dark);   /* darker green on hover */
+  transform: scale(1.05);                /* subtle zoom effect */
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.card {
+  flex: 1;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.card-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-value {
+  font-size: 1.5rem;
+}
+
+.card.total { background-color: var(--lavender-gray); color: var(--off-white); }
+.card.eco { background-color: var(--lime-green); color: var(--off-white); }
+.card.non-eco { background-color: var(--beige); color: var(--green-dark); }
+
+.home-container {
+  display: flex;
+  flex-direction: column;   /* stack heading + paragraph */
+  justify-content: center;  /* center vertically */
+  align-items: center;      /* center horizontally */
+  height: 100vh;            /* full viewport height */
+  text-align: center;       /* center text alignment */
+}
+
+.transactions {
+  margin: 3rem;              /* more margin around the table */
+  overflow-x: auto;
+}
+
+.transactions table {
+  width: 100%;
+  border-collapse: separate; /* allows spacing */
+  border-spacing: 0 0.75rem; /* adds vertical space between rows */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: var(--off-white);
+}
+
+.transactions th, .transactions td {
+  padding: 1.25rem 1rem;     /* more padding inside cells */
+  text-align: left;
+  line-height: 1.8;          /* taller line height for readability */
+}
+
+.transactions th {
+  background-color: var(--green-dark);
+  color: var(--off-white);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.transactions tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.transactions tbody tr:nth-child(even) {
+  background-color: var(--beige);
+}
+
+.transactions tbody tr:hover {
+  background-color: var(--lime-green);
+  color: var(--off-white);
+}
+
+/* Eco labels */
+.eco-label {
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.eco-label.eco {
+  
+  color: var(--lavender-gray);
+}
+
+.eco-label.non-eco {
+ 
+  color: var(--lavender-gray);
+}
+
+
